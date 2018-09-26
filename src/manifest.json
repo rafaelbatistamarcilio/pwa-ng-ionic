@@ -1,6 +1,6 @@
 {
-  "name": "RBM Progressive Web App",
-  "short_name": "RBM PWA",
+  "name": "RBM Controle de despesas",
+  "short_name": "Despesas App",
   "theme_color": "#000000",
   "background_color": "#000000",
   "display": "standalone",

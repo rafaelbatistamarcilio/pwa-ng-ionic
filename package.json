@@ -1,6 +1,6 @@
 {
-  "name": "heroku-client",
-  "version": "0.0.2",
+  "name": "controle-de-despesas",
+  "version": "0.0.3",
   "scripts": {
     "ng": "ng",
     "postinstall": "ng b --prod",
