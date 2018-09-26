@@ -1,0 +1,18 @@
+<ion-menu side="start" type="overlay" menu-id="app-menu" content-id="content-container">
+  <ion-header>
+    <ion-toolbar color="dark" >
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list mode="md" lines="full">
+      <ion-item>
+        <ion-menu-button mode="md" id="btn-despesas" (click)="goTo('home')"> Inicio </ion-menu-button>
+      </ion-item>
+      <ion-item>
+        <ion-menu-button mode="md" id="btn-despesas" (click)="goTo('despesas')"> Despesas </ion-menu-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>

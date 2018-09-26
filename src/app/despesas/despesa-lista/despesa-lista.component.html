@@ -1,0 +1,26 @@
+<app-header titulo="Despesas"></app-header>
+
+<ion-content id="content-container" fullscreen style="overflow-y:auto">
+  <ion-list mode="md" lines="full">
+    <ion-item *ngFor="let despesa of despesas">
+      <ion-label>{{despesa}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>
+
+<ion-footer class="footer" style="bottom: 0px !important; position:fixed">
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab label="Nova Despesa" href="/despesas/nova">
+        <i class="fas fa-plus-circle"></i>
+      </ion-tab>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
