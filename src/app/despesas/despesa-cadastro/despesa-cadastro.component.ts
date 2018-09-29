@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { FormValidationService } from '../../shared/form-validation.service';
 import { ToastController } from '@ionic/angular';
 
@@ -51,7 +51,7 @@ export class DespesaCadastroComponent implements OnInit {
     }
   }
 
-  isValid(field: FormControl) {
+  isValid(field: AbstractControl) {
     if (field.invalid && field.dirty) { return 'danger'; }
 
     if (field.valid && field.dirty) { return 'success'; }
