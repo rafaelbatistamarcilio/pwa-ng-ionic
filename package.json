@@ -1,6 +1,6 @@
 {
   "name": "controle-de-despesas",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "ng": "ng",
     "postinstall": "ng b --prod",
