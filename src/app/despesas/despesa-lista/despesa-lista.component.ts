@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { InfiniteScroll } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-despesa-lista',
@@ -9,7 +8,6 @@ import { InfiniteScroll } from '@ionic/angular';
 export class DespesaListaComponent implements OnInit {
 
   public despesas: string[];
-  @ViewChild(InfiniteScroll) infiniteScroll: InfiniteScroll;
 
   constructor() {
     this.despesas = [

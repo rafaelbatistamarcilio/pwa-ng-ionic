@@ -24,7 +24,9 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    IonicModule.forRoot()
+    IonicModule.forRoot({
+      mode: 'md'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
