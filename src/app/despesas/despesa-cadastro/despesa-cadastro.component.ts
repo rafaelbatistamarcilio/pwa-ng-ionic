@@ -1,3 +1,4 @@
+import { Despesa } from './../despesa.entity';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { FormValidationService } from '../../shared/form-validation.service';
@@ -40,10 +41,10 @@ export class DespesaCadastroComponent implements OnInit {
     } else {
 
       try {
-        await this.despesaService.add(this.formObj.getRawValue());
+        const despesa: Despesa = this.formObj.getRawValue();
+        await this.despesaService.add(despesa);
         mensagem = 'Despesa salva com sucesso';
       } catch (error) {
-
         mensagem = 'Erro ao salvar despesa: ' + JSON.stringify(error);
       }
     }

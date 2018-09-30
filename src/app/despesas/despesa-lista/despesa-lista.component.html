@@ -3,16 +3,13 @@
 <ion-content fullscreen id="content-container">
   <ion-list lines="full" class="scroll-content">
     <ion-item *ngFor="let despesa of despesaService.despesas">
-      <ion-label>{{despesa.tipo}} - {{despesa.descricao}}</ion-label>
 
       <ion-label text-wrap>
-        <ion-text color="primary">
-          <h3>{{despesa.tipo}}</h3>
-        </ion-text>
-        <p>{{despesa.valor | currency}}</p>
-        <ion-text >
-          <p>{{despesa.data | date:'dd/MM/yyyy'}}</p>
-        </ion-text>
+        <ion-text color="primary"> {{ formatarData( despesa.data ) }} : {{despesa.tipo}}  </ion-text>
+        
+        <ion-text > <p>{{despesa.valor | currency}}</p>  </ion-text>
+
+        <p style="overflow: hidden">{{ despesa.descricao }}</p>      
       </ion-label>
 
     </ion-item>

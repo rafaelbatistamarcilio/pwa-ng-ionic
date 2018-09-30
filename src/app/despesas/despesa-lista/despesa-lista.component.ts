@@ -10,10 +10,13 @@ import { DespesasService } from '../despesas.service';
 export class DespesaListaComponent implements OnInit {
 
   constructor(public despesaService: DespesasService) {
-
   }
 
   async ngOnInit() {
     await this.despesaService.updateStore();
+  }
+
+  formatarData(data) {
+    return data.day.value + '/' + data.month.value + '/' + data.year.value;
   }
 }

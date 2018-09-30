@@ -10,12 +10,14 @@ export class DespesasService {
   public despesas: Despesa[];
 
   constructor(private despesasRepository: DespesasRepository) {
+    this.despesas = [];
     this.updateStore();
 
   }
 
   async updateStore() {
     this.despesas = await this.getAll();
+    console.log(this.despesas);
   }
 
   getStore() {
