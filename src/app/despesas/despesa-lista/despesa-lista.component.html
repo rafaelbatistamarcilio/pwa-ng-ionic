@@ -5,10 +5,8 @@
     <ion-item *ngFor="let despesa of despesaService.despesas">
 
       <ion-label text-wrap>
-        <ion-text color="primary"> {{ formatarData( despesa.data ) }} : {{despesa.tipo}}  </ion-text>
-        
+        <ion-text color="primary"> {{despesa.tipo}} :  {{  formatarData( despesa.data ) }} </ion-text>        
         <ion-text > <p>{{despesa.valor | currency}}</p>  </ion-text>
-
         <p style="overflow: hidden">{{ despesa.descricao }}</p>      
       </ion-label>
 

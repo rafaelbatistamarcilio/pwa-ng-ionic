@@ -17,7 +17,6 @@ export class DespesasService {
 
   async updateStore() {
     this.despesas = await this.getAll();
-    console.log(this.despesas);
   }
 
   getStore() {
@@ -34,7 +33,9 @@ export class DespesasService {
 
   async add(data) {
     try {
-      return await this.despesasRepository.add(data);
+      const inserts = await this.despesasRepository.add(data);
+      await this.updateStore();
+      return inserts;
     } catch (error) {
       throw error;
     }
@@ -42,7 +43,9 @@ export class DespesasService {
 
   async update(id, data) {
     try {
-      return await this.despesasRepository.update(id, data);
+      const updates = await this.despesasRepository.update(id, data);
+      await this.updateStore();
+      return updates;
     } catch (error) {
       throw error;
     }
@@ -51,6 +54,7 @@ export class DespesasService {
   async remove(id) {
     try {
       await this.despesasRepository.remove(id);
+      this.updateStore();
       return true;
     } catch (error) {
       throw error;

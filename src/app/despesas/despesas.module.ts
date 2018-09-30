@@ -4,6 +4,7 @@ import { DespesaListaComponent } from './despesa-lista/despesa-lista.component';
 import { DespesasRouting } from './despesas.routing';
 import { DespesaCadastroComponent } from './despesa-cadastro/despesa-cadastro.component';
 import { SharedModule } from '../shared/shared.module';
+import { DespesaDetalheComponent } from './despesa-detalhe/despesa-detalhe.component';
 
 @NgModule({
   imports: [
@@ -11,6 +12,6 @@ import { SharedModule } from '../shared/shared.module';
     DespesasRouting,
     SharedModule
   ],
-  declarations: [DespesaListaComponent, DespesaCadastroComponent]
+  declarations: [DespesaListaComponent, DespesaCadastroComponent, DespesaDetalheComponent]
 })
 export class DespesasModule { }

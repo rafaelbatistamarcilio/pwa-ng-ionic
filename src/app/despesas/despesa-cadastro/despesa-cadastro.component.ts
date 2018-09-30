@@ -33,32 +33,21 @@ export class DespesaCadastroComponent implements OnInit {
   }
 
   async salvar() {
-    let mensagem = '';
     this.formValidationService.markFieldsDirty(this.formObj);
 
     if (this.formObj.invalid) {
-      mensagem = 'Preencha o formulário corretamente!';
+      this.exibirMensagem( 'Preencha o formulário corretamente!');
     } else {
 
       try {
         const despesa: Despesa = this.formObj.getRawValue();
         await this.despesaService.add(despesa);
-        mensagem = 'Despesa salva com sucesso';
+        this.exibirMensagem( 'Despesa salva com sucesso');
+        this.router.navigate(['despesas']);
       } catch (error) {
-        mensagem = 'Erro ao salvar despesa: ' + JSON.stringify(error);
+        this.exibirMensagem( 'Erro ao salvar despesa: ' + JSON.stringify(error) );
       }
     }
-
-    const toast = await this.toastController.create({
-      message: mensagem,
-      closeButtonText: 'Ok',
-      showCloseButton: true,
-      position: 'bottom'
-    });
-    toast.present();
-
-    await this.despesaService.updateStore();
-    this.router.navigate(['despesas']);
   }
 
   isValid(field: AbstractControl) {
@@ -67,5 +56,15 @@ export class DespesaCadastroComponent implements OnInit {
     if (field.valid && field.dirty) { return 'success'; }
 
     return '';
+  }
+
+  async exibirMensagem(mensagem) {
+    const toast = await this.toastController.create({
+      message: mensagem,
+      closeButtonText: 'Ok',
+      showCloseButton: true,
+      position: 'bottom'
+    });
+    toast.present();
   }
 }
