@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { FormValidationService } from '../../shared/form-validation.service';
 import { ToastController } from '@ionic/angular';
+import { DespesasService } from '../despesas.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-despesa-cadastro',
@@ -14,7 +16,9 @@ export class DespesaCadastroComponent implements OnInit {
 
   constructor(
     private formValidationService: FormValidationService,
-    public toastController: ToastController) {
+    private toastController: ToastController,
+    private despesaService: DespesasService,
+    private router: Router) {
 
     this.formObj = new FormBuilder().group({
       tipo: [null, Validators.required],
@@ -28,27 +32,32 @@ export class DespesaCadastroComponent implements OnInit {
   }
 
   async salvar() {
-
+    let mensagem = '';
     this.formValidationService.markFieldsDirty(this.formObj);
-    console.log(this.formObj.getRawValue());
 
     if (this.formObj.invalid) {
-      const toast = await this.toastController.create({
-        message: 'Preencha o formulário corretamente!',
-        closeButtonText: 'Ok',
-        showCloseButton: true,
-        position: 'bottom'
-      });
-      toast.present();
+      mensagem = 'Preencha o formulário corretamente!';
     } else {
-      const toast = await this.toastController.create({
-        message: 'Despesa salva com sucesso',
-        closeButtonText: 'Ok',
-        showCloseButton: true,
-        position: 'bottom'
-      });
-      toast.present();
+
+      try {
+        await this.despesaService.add(this.formObj.getRawValue());
+        mensagem = 'Despesa salva com sucesso';
+      } catch (error) {
+
+        mensagem = 'Erro ao salvar despesa: ' + JSON.stringify(error);
+      }
     }
+
+    const toast = await this.toastController.create({
+      message: mensagem,
+      closeButtonText: 'Ok',
+      showCloseButton: true,
+      position: 'bottom'
+    });
+    toast.present();
+
+    await this.despesaService.updateStore();
+    this.router.navigate(['despesas']);
   }
 
   isValid(field: AbstractControl) {

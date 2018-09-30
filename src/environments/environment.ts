@@ -6,6 +6,10 @@ export const environment = {
   production: false,
   API: {
     CHAT_WS: 'http://localhost:3001'
+  },
+  DB: {
+    NAME: 'DESPESAS_DB',
+    VERSION: 1
   }
 };
 

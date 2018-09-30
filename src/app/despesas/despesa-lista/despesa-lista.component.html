@@ -1,9 +1,20 @@
 <app-header titulo="Despesas"></app-header>
 
-<ion-content padding id="content-container">
+<ion-content fullscreen id="content-container">
   <ion-list lines="full" class="scroll-content">
-    <ion-item *ngFor="let despesa of despesas">
-      <ion-label>{{despesa}}</ion-label>
+    <ion-item *ngFor="let despesa of despesaService.despesas">
+      <ion-label>{{despesa.tipo}} - {{despesa.descricao}}</ion-label>
+
+      <ion-label text-wrap>
+        <ion-text color="primary">
+          <h3>{{despesa.tipo}}</h3>
+        </ion-text>
+        <p>{{despesa.valor | currency}}</p>
+        <ion-text >
+          <p>{{despesa.data | date:'dd/MM/yyyy'}}</p>
+        </ion-text>
+      </ion-label>
+
     </ion-item>
   </ion-list>
 </ion-content>
