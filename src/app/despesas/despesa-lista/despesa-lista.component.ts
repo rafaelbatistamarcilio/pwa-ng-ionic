@@ -1,6 +1,8 @@
 import { Despesa } from './../despesa.entity';
 import { Component, OnInit } from '@angular/core';
 import { DespesasService } from '../despesas.service';
+import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-despesa-lista',
@@ -9,14 +11,26 @@ import { DespesasService } from '../despesas.service';
 })
 export class DespesaListaComponent implements OnInit {
 
-  constructor(public despesaService: DespesasService) {
+  constructor(
+    public despesaService: DespesasService,
+    public router: Router,
+    private menuController: MenuController) {
   }
 
   async ngOnInit() {
+    await this.menuController.enable(true, 'app-menu');
     await this.despesaService.updateStore();
   }
 
   formatarData(data) {
     return data.day.value + '/' + data.month.value + '/' + data.year.value;
+  }
+
+  detalhar(id) {
+    this.router.navigate(['/despesas/' + id]);
+  }
+
+  async excluir(id) {
+    await this.despesaService.remove(id);
   }
 }

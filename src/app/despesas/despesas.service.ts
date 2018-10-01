@@ -23,6 +23,14 @@ export class DespesasService {
     return this.despesas;
   }
 
+  async findById(id) {
+    try {
+      return await this.despesasRepository.findById(id);
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async getAll() {
     try {
       return await this.despesasRepository.getAll();

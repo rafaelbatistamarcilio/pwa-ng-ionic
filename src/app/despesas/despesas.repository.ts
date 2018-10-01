@@ -23,6 +23,10 @@ export class DespesasRepository extends Dexie {
         });
     }
 
+    async findById(id) {
+        return await this.despesas.get(id);
+    }
+
     async getAll() {
         return await this.despesas.toArray();
     }

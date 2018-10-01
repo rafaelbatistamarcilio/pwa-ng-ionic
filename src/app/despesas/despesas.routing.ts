@@ -1,3 +1,4 @@
+import { DespesaDetalheComponent } from './despesa-detalhe/despesa-detalhe.component';
 import { DespesaCadastroComponent } from './despesa-cadastro/despesa-cadastro.component';
 import { DespesaListaComponent } from './despesa-lista/despesa-lista.component';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,14 @@ const routes: Routes = [
   {
     path: 'nova',
     component: DespesaCadastroComponent
+  },
+  {
+    path: 'edicao/:id',
+    component: DespesaCadastroComponent
+  },
+  {
+    path: ':id',
+    component: DespesaDetalheComponent
   }
 ];
 
