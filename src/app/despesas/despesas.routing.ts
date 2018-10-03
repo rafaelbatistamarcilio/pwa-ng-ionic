@@ -3,11 +3,16 @@ import { DespesaCadastroComponent } from './despesa-cadastro/despesa-cadastro.co
 import { DespesaListaComponent } from './despesa-lista/despesa-lista.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { DespesaAnaliseComponent } from './despesa-analise/despesa-analise.component';
 
 const routes: Routes = [
   {
     path: '',
     component: DespesaListaComponent
+  },
+  {
+    path: 'analise',
+    component: DespesaAnaliseComponent
   },
   {
     path: 'nova',
