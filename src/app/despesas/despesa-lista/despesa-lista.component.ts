@@ -23,7 +23,8 @@ export class DespesaListaComponent implements OnInit {
   }
 
   formatarData(data) {
-    return data.day.value + '/' + data.month.value + '/' + data.year.value;
+    const membros = data.split('-') as string[];
+    return membros.reverse().join('/');
   }
 
   detalhar(id) {
