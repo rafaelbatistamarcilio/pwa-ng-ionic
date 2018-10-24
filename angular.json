@@ -21,8 +21,7 @@
             "assets": [
               { "glob": "**/*", "input": "src/assets/", "output": "/assets/" },
               { "glob": "favicon.ico", "input": "src/", "output": "/" },
-              { "glob": "manifest.json", "input": "src/", "output": "/" },
-              { "glob": "md*.svg", "input": "node_modules/@ionic/angular/dist/ionic/svg/", "output": "/svg" }
+              { "glob": "manifest.json", "input": "src/", "output": "/" }
             ],
             "styles": [
               "src/styles.css",
