@@ -5,7 +5,7 @@
     "ng": "ng",
     "postinstall": "ng b --prod",
     "start": "node server.js",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -25,6 +25,9 @@
     "@angular/pwa": "^0.10.2",
     "@angular/router": "^7.0.0",
     "@angular/service-worker": "^7.0.0",
+    "@fortawesome/angular-fontawesome": "^0.3.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.6",
+    "@fortawesome/free-solid-svg-icons": "^5.4.1",
     "@ionic/angular": "^4.0.0-beta.13",
     "chart.js": "^2.7.3",
     "compression": "^1.7.3",

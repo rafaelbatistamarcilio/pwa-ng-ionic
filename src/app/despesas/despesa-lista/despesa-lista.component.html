@@ -12,12 +12,12 @@
           </ion-text>
           <p style="overflow: hidden">{{ despesa.descricao }}</p>
         </ion-label>
-        <i class="fas fa-chevron-left"></i>
+        <fa-icon [icon]="['fas', 'chevron-left']"></fa-icon>
       </ion-item>
 
       <ion-item-options side="end" class="sliding-enabled">
         <ion-item-option color="danger" (click)="excluir(despesa.id)">  
-          <i class="fa fa-trash-alt" aria-hidden="true"></i> 
+          <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>
           <label style="padding: 0 5px">Excluir </label>
         </ion-item-option>
       </ion-item-options>

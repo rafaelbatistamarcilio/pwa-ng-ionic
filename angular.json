@@ -22,7 +22,7 @@
               { "glob": "**/*", "input": "src/assets/", "output": "/assets/" },
               { "glob": "favicon.ico", "input": "src/", "output": "/" },
               { "glob": "manifest.json", "input": "src/", "output": "/" },
-              { "glob": "*.svg", "input": "node_modules/@ionic/angular/dist/ionic/svg/", "output": "/svg" }
+              { "glob": "md*.svg", "input": "node_modules/@ionic/angular/dist/ionic/svg/", "output": "/svg" }
             ],
             "styles": [
               "src/styles.css",
