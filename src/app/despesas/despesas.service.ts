@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Despesa } from './despesa.entity';
 import { DespesasRepository } from './despesas.repository';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +10,9 @@ export class DespesasService {
 
   public despesas: Despesa[];
 
-  constructor(private despesasRepository: DespesasRepository) {
+  constructor( private despesasRepository: DespesasRepository) {
     this.despesas = [];
     this.updateStore();
-
   }
 
   async updateStore() {
